@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>J+S the first story</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="./js/bootstrap.js"></script>
+<script src="./js/jquery-2.1.4.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/holder.js"></script>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:400,700|Montserrat:400,700'
+	rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+<style type="text/css">	
+@font-face {
+	font-family: bitter;
+	src: url(./fonts/BITTER-REGULAR.TTF);
+}
+@font-face {
+	font-family: badscript;
+	src: url(./fonts/BADSCRIPT-REGULAR.TTF);
+}
+
+@font-face {
+	font-family: permanentmaker;
+	src: url(./fonts/PERMANENTMARKER.TTF);
+}
+
+@font-face {
+	font-family: dejavusansmono;
+	src: url(./fonts/DEJAVUSANSMONO.TTF);
+}
+
+@keyframes scroll { 
+	0% {	left: 0;	top: 0;}
+	85%{	left: 0;	top: 20px;}
+}
+@-webkit-keyframes scroll { 
+	0% {	left: 0;	top: 0;}
+	85%{	left: 0;	top: 20px;}
+}
+
+body {
+	margin: 0;
+	width: 100%;
+	font-family: bitter, sans-serif, Serif;
+}
+
+#navi {
+	opacity: 0.8;
+}
+
+header {
+	position: relative;
+}
+
+header>#mainimg {
+	position: absolute;
+	min-height: 600px;
+	margin: auto;
+}
+
+.scroll-down {
+	position: absolute;
+	left: 50%;
+	bottom: 25px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	margin-left: -15px;
+	display: block;
+	z-index: 10;
+	text-align: center;
+}
+
+.scroll-down span {
+	position: relative;
+	color: #fff;
+	animation: scroll 2s;
+	animation-iteration-count: infinite;
+	-webkit-animation: scroll 2s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+#hometitle {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%) rotate(-4deg);
+	text-align: center;
+	color: #fff;
+	font-family: permanentmaker;
+	font-size: 60px;
+}
+
+#littletalk {
+	position: absolute;
+	top: 75%;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	font-family: badscript;
+	font-size: 18px;
+}
+
+.mainbody {
+	background-color: #eee;
+}
+
+.container {
+	width: 70%;
+	margin: auto auto;
+	position: relative;
+}
+
+.title {
+	font-family: Bitter, sans-serif, Serif;
+	font-size: 60px;
+	display: block;
+	text-align: center;
+	padding-top: 50px;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #bbb;
+}
+
+#about, #portfolio, #shop {
+	min-height: 800px;
+}
+ 
+section {
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#portfolio > .col-md-4, .col-sm-4, .col-xs-12 {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	float: left;
+}
+
+.caption {
+	position: relative;
+	overflow: hidden;
+	transform: translateZ(0);
+}
+
+.portfolio-img {
+	display: block;
+	min-width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.caption-overlay {
+	position: absolute;
+	top: 40%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	color: #fff;
+	font-size: 18px;
+	transform: translateY(100%);
+	transition: transform .35s ease-out;
+	text-align: center;
+}
+
+.caption:hover .caption-overlay {
+	transform: translateY(0);
+}
+
+.caption::before {
+	content: ' ';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: transparent;
+	transition: background .35s ease-out;
+}
+
+.caption:hover::before {
+	background: rgba(0, 0, 0, .5);
+}
+
+#target-content {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#target-content:target {
+	pointer-events: all;
+	opacity: 1;
+}
+
+#target-content #target-inner {
+	position: absolute;
+	display: block;
+	padding: 48px;
+	line-height: 1.8;
+	width: 70%;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+	background: white;
+	color: #34495E;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+#target-content #target-inner h2 {
+	margin-top: 0;
+}
+
+#target-content #target-inner code {
+	font-weight: bold;
+}
+
+#target-content a.close {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #34495E;
+	opacity: 0.5;
+	-webkit-transition: opacity 200ms;
+	transition: opacity 200ms;
+}
+
+#target-content a.close:hover {
+	opacity: 0.4;
+}
+
+.pause {
+	width: 100%; height: 450px; position: relative;
+}
+
+.thumbnail{
+	border: 0px none ;
+}
+footer {
+	background-color: #555;
+	color: #FFF;
+	min-height: 350px;
+	padding-top: 50px;
+}
+
+.scroll-up {
+	position: fixed;
+	display: none;
+	z-index: 999;
+	bottom: 2em;
+	right: 2em;
+}
+
+.scroll-up a {
+	background-color: rgba(135, 135, 135, 0.5);
+	display: block;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+	line-height: 30px;
+}
+
+.facebook-logo-button-32, .instagram-logo-32, .twitter-logo-button-32{ 
+	display: inline-block; background: url('./img/sprite_img.png') no-repeat; 
+	overflow: hidden; 
+}
+ 
+ .footer-contact{
+ 	width: 40%;
+ 	min-width: 120px;
+ 	margin: auto auto;
+ 	padding-top: 50px; padding-bottom: 50px;
+ }
+ .footer-contact > .col-md-4, .col-sm-4, .col-xs-12 {
+ 	text-align: center;
+ }
+.facebook-logo-button-32 { background-position: -0px -0px; width: 32px; height: 32px; }
+.instagram-logo-32 { background-position: -0px -32px; width: 32px; height: 32px; }
+.twitter-logo-button-32 { background-position: -0px -64px; width: 32px; height: 32px; }
+
+
+</style>
+</head>
+<body>
+	<div>
+
+		<!-- Home start! -->
+		<header>
+			<div class="full-featured">
+				<img id="mainimg" src="./img/main3.png" width=100% height=800px;>
+				<h1 id="hometitle">
+					Juha + Sunny, <br> the first story <br>
+				</h1>
+				<p id="littletalk">
+					We’ve been preparing this website since 1991. All inspirations here
+					came from our daily life. <br />Enjoy!
+				</p>
+				<a href="#navi">
+					<div class="scroll-down">
+						<span><i class="glyphicon glyphicon-menu-down"></i></span>
+					</div>
+				</a>
+			</div>
+		</header>
+		<!-- Home end! -->
+
+		<!-- Navigation start! -->
+		<div id="navi" class="navbar-inverse">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="welcome.html">J+S Storage</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div id="menu" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#about">About</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#shop">Shop</a></li>
+						<li><a href="#footer">Contact</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Member<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li role="presentation"><a href="#">Login</a></li>
+								<li role="presentation"><a href="#">Sign in</a></li>
+								<li role="presentation"><a href="#">My Page</a></li>
+								<li role="presentation" class="divider"></li>
+								<li role="presentation"><a href="#">Cart</a></li>
+								<li role="presentation"><a href="#">Wish List</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- Navigation end! -->
+
+		<div class="mainbody" id="services">
+			<div class="container">
+				<div id="about">
+					<span class="title">About</span>
+					<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec eu diam eros. Nulla facilisi. Vestibulum scelerisque tortor
+						eget mi ultricies, a mollis purus fringilla. Ut vitae nunc
+						gravida, congue orci at, euismod arcu. Donec eu consequat massa.
+						Duis a ipsum eu augue pulvinar fermentum sit amet et ex.
+						Suspendisse at diam nec turpis gravida tempor. Aenean ac
+						sollicitudin tellus. Lorem ipsum dolor sit amet, consectetur
+						adipiscing elit. Nullam ornare ultrices diam, fringilla sodales
+						odio dignissim at. Pellentesque facilisis viverra pharetra.
+						Aliquam justo nunc, faucibus id enim at, lacinia pretium dui.
+						Morbi libero lorem, pharetra et dui sit amet, tristique imperdiet
+						augue. Nam venenatis leo euismod faucibus finibus. Mauris sodales
+						neque vel nisi fringilla viverra. In eleifend felis non neque
+						malesuada blandit. Integer tristique nisl vel fermentum ornare.</p>
+					<br /> <br />
+				</div>
+			</div>
+		</div>
+		<section id="portfolio">
+			<div class="container">
+				<span class="title">Portfolio</span>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<figure class="caption">
+							<img alt="test_img_1" src="./img/test_img_1.JPG"
+								class="portfolio-img">
+							<figcaption class="caption-overlay">
+								<span class="portfolio-text">iphone-5s with Banana</span>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<figure class="caption">
+							<img alt="test_img_2" src="./img/test_img_2.JPG"
+								class="portfolio-img">
+							<figcaption class="caption-overlay">
+								<span>gellato</span>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<figure class="caption">
+							<img alt="test_img_3" src="./img/test_img_3.JPG"
+								class="portfolio-img">
+							<figcaption class="caption-overlay">
+								<span>blueberry acai bowl</span>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<a href="#target-content"> <img alt="test_img_1"
+							src="./img/test_img_1.JPG" class="portfolio-img">
+						</a>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<a href="#target-content"> <img alt="test_img_2"
+							src="./img/test_img_2.JPG" class="portfolio-img">
+						</a>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<a href="#target-content"> <img alt="test_img_3"
+							src="./img/test_img_3.JPG" class="portfolio-img">
+						</a>
+					</div>
+					<div id="target-content">
+						<a href="#portfolio" class="close"></a>
+						<div id="target-inner">
+							<h2>Modal Image</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Donec eu diam eros. Nulla facilisi.</p>
+						</div>
+					</div>
+				</div>
+				<p style="padding-top: 20px;">Lorem ipsum dolor sit amet,
+					consectetur adipiscing elit. Donec eu diam eros. Nulla facilisi.
+					Vestibulum scelerisque tortor eget mi ultricies, a mollis purus
+					fringilla. Ut vitae nunc gravida, congue orci at, euismod arcu.
+					Donec eu consequat massa. Duis a ipsum eu augue pulvinar fermentum
+					sit amet et ex.</p>
+				<br /> <br />
+			</div>
+		</section>
+		
+		<section id="shop">
+			<div class="pause">
+				<img src="./img/pause_img.png" style="height: 100%; width: 100%; opacity: 0.7;">
+				<span style="	position: absolute; top: 45%; width: 100%; text-align: center;
+						color: #fff; font-size: 40px; ">Live like a fairy tale.</span>
+			</div>
+			<div class="container">
+				<span class="title">Shop</span>
+				<div class="row">
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="./img/shop_item1.jpg" alt="...">
+								<div class="caption">
+									<h4>Vivienne_Tam</h4>
+									<div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;"></div>
+									<p>가격 : 300,000원</p>
+									<p>
+										<a href="#" class="btn btn-default btn-sm">wishlist</a> <a href="#"
+											class="btn btn-primary btn-sm">buy</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="./img/shop_item2.jpg" alt="...">
+								<div class="caption">
+									<h4>Michael Kors</h4>
+									<div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;"></div>
+									<p>가격 : 300,000원</p>
+									<p>
+										<a href="#" class="btn btn-default btn-sm">wishlist</a> <a href="#"
+											class="btn btn-primary btn-sm">buy</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="./img/shop_item3.jpg" alt="...">
+								<div class="caption">
+									<h4>Michael Kors2</h4>
+									<div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;"></div>
+									<p>가격 : 300,000원</p>
+									<p>
+										<a href="#" class="btn btn-default btn-sm">wishlist</a> <a href="#"
+											class="btn btn-primary btn-sm">buy</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="./img/shop_item4.jpg" alt="...">
+								<div class="caption">
+									<h4>Jil Sander</h4>
+									<div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;"></div>
+									<p>가격 : 300,000원</p>
+									<p>
+										<a href="#" class="btn btn-default btn-sm">wishlist</a> <a href="#"
+											class="btn btn-primary btn-sm">buy</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</section>
+
+		<!-- 댓글 기능 -->
+		<section>
+			<span class="title">Comment</span>
+			<div id="review-section" class="container">
+				<div id="disqus_thread"></div>
+			</div>
+		</section>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'myfirststorage';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script');
+				dsq.type = 'text/javascript';
+				dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document
+						.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>
+			Please enable JavaScript to view the <a
+				href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+				powered by Disqus.</a>
+		</noscript>
+
+
+		<footer id="footer">
+			<div class="footer-section">
+				<div>
+					<div class="footer-contact">
+						<div class="col-sm-4">
+							<div class="facebook-logo-button-32"></div>						
+						</div>
+						<div class="col-sm-4">
+							<div class="instagram-logo-32"></div>						
+						</div>
+						<div class="col-sm-4">
+							<div class="twitter-logo-button-32"></div>										
+						</div>
+					</div>
+					<div style="height: 100px;"></div>
+					<p style="font-size: 12px; text-align: center; 
+					bottom: 20px;">JUHA + SUNNY 'S THE FIRST STORY @ALL RIGHTS RESERVED . K</p>			
+				</div>
+			</div>
+		</footer>
+		<div class="scroll-up" style="display: block;">
+			<a href="#"> <i class="glyphicon glyphicon-menu-up"></i>
+			</a>
+		</div>
+	</div>
+</body>
+</html>
